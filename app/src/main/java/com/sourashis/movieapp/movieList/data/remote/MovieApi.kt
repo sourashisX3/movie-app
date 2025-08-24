@@ -1,5 +1,6 @@
 package com.sourashis.movieapp.movieList.data.remote
 
+import com.sourashis.movieapp.BuildConfig
 import com.sourashis.movieapp.movieList.data.remote.respond.MovieListDto
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -11,12 +12,11 @@ interface MovieApi {
     suspend fun getMoviesList(
         @Path("category") category: String,
         @Query("page") page: Int,
-        @Query("api_key") apiKey: String = API_KEY,
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
     ): MovieListDto
 
     companion object {
         const val BASE_URL = "https://api.themoviedb.org/3/"
         const val IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500"
-        const val API_KEY = "d80e7d045d8391badf71c3d866a6fd98"
     }
 }
