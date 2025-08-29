@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Movie
 import androidx.compose.material.icons.filled.Upcoming
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -120,7 +121,7 @@ fun BottomNavigationBar(
         BottomItem(
             title = stringResource(R.string.upcoming),
             icon = Icons.Default.Upcoming
-        )
+        ),
     )
     val selected = rememberSaveable {
         mutableIntStateOf(0)

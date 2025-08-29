@@ -2,6 +2,7 @@
     <string name="app_name">MovieApp</string>
     <string name="popular">Popular</string>
     <string name="upcoming">Upcoming</string>
+    <string name="home">Home</string>
     <string name="popular_movies">Popular Movies</string>
     <string name="upcoming_movies">Upcoming Movies</string>
     <string name="language">Language: </string>
