@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
-
 package com.sourashis.movieapp.core.presentation
 
 import androidx.compose.foundation.background
@@ -38,12 +36,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.sourashis.movieapp.R
+import com.sourashis.movieapp.movieList.presentation.MainScreen
 import com.sourashis.movieapp.movieList.presentation.MovieListUiEvent
 import com.sourashis.movieapp.movieList.presentation.MovieListViewModel
 import com.sourashis.movieapp.movieList.presentation.PopularMoviesScreen
 import com.sourashis.movieapp.movieList.presentation.UpcomingMoviesScreen
 import com.sourashis.movieapp.movieList.util.Screen
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(navController: NavHostController) {
 
@@ -51,6 +51,7 @@ fun HomeScreen(navController: NavHostController) {
     val movieListState = movieListViewModel.movieListState.collectAsState().value
     val bottomNavController = rememberNavController()
 
+    val appBarName: String? = null
     Scaffold(
         bottomBar = {
             BottomNavigationBar(
@@ -86,8 +87,12 @@ fun HomeScreen(navController: NavHostController) {
         ) {
             NavHost(
                 navController = bottomNavController,
-                startDestination = Screen.PopularMovieList.rout
+                startDestination = Screen.MainScreen.rout
             ) {
+                composable(Screen.MainScreen.rout) {
+                    MainScreen(navController = navController)
+                }
+
                 composable(Screen.PopularMovieList.rout) {
                     PopularMoviesScreen(
                         navController = navController,
@@ -115,6 +120,10 @@ fun BottomNavigationBar(
 
     val items = listOf(
         BottomItem(
+            title = stringResource(R.string.home),
+            icon = Icons.Default.Home
+        ),
+        BottomItem(
             title = stringResource(R.string.popular),
             icon = Icons.Default.Movie
         ),
@@ -140,14 +149,21 @@ fun BottomNavigationBar(
                             0 -> {
                                 onEvent(MovieListUiEvent.Navigate)
                                 bottomNavController.popBackStack()
-                                bottomNavController.navigate(Screen.PopularMovieList.rout)
+                                bottomNavController.navigate(Screen.MainScreen.rout)
                             }
 
                             1 -> {
                                 onEvent(MovieListUiEvent.Navigate)
                                 bottomNavController.popBackStack()
+                                bottomNavController.navigate(Screen.PopularMovieList.rout)
+                            }
+
+                            2 -> {
+                                onEvent(MovieListUiEvent.Navigate)
+                                bottomNavController.popBackStack()
                                 bottomNavController.navigate(Screen.UpcomingMovieList.rout)
                             }
+
                         }
                     },
                     icon = {

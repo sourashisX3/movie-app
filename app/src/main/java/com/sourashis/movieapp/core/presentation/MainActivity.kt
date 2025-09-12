@@ -19,6 +19,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.sourashis.movieapp.details.presentation.DetailsScreen
+import com.sourashis.movieapp.movieList.presentation.MainScreen
 import com.sourashis.movieapp.movieList.presentation.MovieListViewModel
 import com.sourashis.movieapp.movieList.util.Screen
 import com.sourashis.movieapp.ui.theme.MovieAppTheme
