@@ -1,4 +1,4 @@
-package com.sourashis.movieapp.movieList.presentation
+package com.sourashis.movieapp.movieList.presentation.screens.mainScreen
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

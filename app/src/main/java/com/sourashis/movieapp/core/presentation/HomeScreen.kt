@@ -36,11 +36,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.sourashis.movieapp.R
-import com.sourashis.movieapp.movieList.presentation.MainScreen
+import com.sourashis.movieapp.movieList.presentation.screens.mainScreen.MainScreen
 import com.sourashis.movieapp.movieList.presentation.MovieListUiEvent
-import com.sourashis.movieapp.movieList.presentation.MovieListViewModel
-import com.sourashis.movieapp.movieList.presentation.PopularMoviesScreen
-import com.sourashis.movieapp.movieList.presentation.UpcomingMoviesScreen
+import com.sourashis.movieapp.movieList.presentation.viewModels.MovieListViewModel
+import com.sourashis.movieapp.movieList.presentation.screens.popularMovies.PopularMoviesScreen
+import com.sourashis.movieapp.movieList.presentation.screens.upcomingMovies.UpcomingMoviesScreen
 import com.sourashis.movieapp.movieList.util.Screen
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -51,7 +51,12 @@ fun HomeScreen(navController: NavHostController) {
     val movieListState = movieListViewModel.movieListState.collectAsState().value
     val bottomNavController = rememberNavController()
 
-    val appBarName: String? = null
+    /*val appBarName: String? = null
+
+    fun appBarNameChange(name: String? = null): String {
+        if()
+    }*/
+
     Scaffold(
         bottomBar = {
             BottomNavigationBar(

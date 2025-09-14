@@ -11,7 +11,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -19,8 +18,6 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.sourashis.movieapp.details.presentation.DetailsScreen
-import com.sourashis.movieapp.movieList.presentation.MainScreen
-import com.sourashis.movieapp.movieList.presentation.MovieListViewModel
 import com.sourashis.movieapp.movieList.util.Screen
 import com.sourashis.movieapp.ui.theme.MovieAppTheme
 import dagger.hilt.android.AndroidEntryPoint

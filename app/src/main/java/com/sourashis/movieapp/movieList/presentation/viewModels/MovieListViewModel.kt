@@ -1,8 +1,10 @@
-package com.sourashis.movieapp.movieList.presentation
+package com.sourashis.movieapp.movieList.presentation.viewModels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sourashis.movieapp.movieList.domain.repository.MovieListRepository
+import com.sourashis.movieapp.movieList.presentation.MovieListState
+import com.sourashis.movieapp.movieList.presentation.MovieListUiEvent
 import com.sourashis.movieapp.movieList.util.Category
 import com.sourashis.movieapp.movieList.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
