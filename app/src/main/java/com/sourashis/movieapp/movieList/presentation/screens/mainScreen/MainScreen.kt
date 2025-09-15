@@ -22,13 +22,17 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.sourashis.movieapp.R
 import com.sourashis.movieapp.movieList.data.local.categories.Category
+import com.sourashis.movieapp.movieList.data.local.topRatedMovies.TopRatedMovie
 import com.sourashis.movieapp.movieList.presentation.components.CategoryChip
+import com.sourashis.movieapp.movieList.presentation.components.TopRatedCard
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -45,6 +49,26 @@ fun MainScreen(navController: NavHostController) {
             Category(4, "Drama"),
             Category(5, "Horror"),
             Category(6, "Sci-Fi"),
+        )
+    }
+
+    val movies = remember {
+        listOf(
+            TopRatedMovie(
+                id = 1,
+                name = "F1",
+                posterUrl = "https://www.imdb.com/title/tt0371746/mediaviewer/rm1544850432/?ref_=tt_ov_i"
+            ),
+            TopRatedMovie(
+                id = 2,
+                name = "F1",
+                posterUrl = "https://www.imdb.com/title/tt0371746/mediaviewer/rm1544850432/?ref_=tt_ov_i"
+            ),
+            TopRatedMovie(
+                id = 3,
+                name = "F1",
+                posterUrl = "https://www.imdb.com/title/tt0371746/mediaviewer/rm1544850432/?ref_=tt_ov_i"
+            ),
         )
     }
 
@@ -91,6 +115,7 @@ fun MainScreen(navController: NavHostController) {
 
         Spacer(modifier = Modifier.height(20.dp))
 
+        // categories
         LazyRow {
             items(categories.size) { index ->
                 val currentCategory = categories[index]
@@ -105,6 +130,27 @@ fun MainScreen(navController: NavHostController) {
                                 clickedCategory
                             }
                         Log.d("category", "Category selected: ${clickedCategory.name}")
+                    }
+                )
+            }
+        }
+
+        // top rated
+        Text(
+            text = "Top Rated",
+            fontSize = 16.sp,
+            fontFamily = FontFamily.Monospace,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(vertical = 16.dp)
+        )
+
+        LazyRow {
+            items(movies.size) { index ->
+                TopRatedCard(
+                    movieName = movies[index].name,
+                    posterImageUrl = movies[index].posterUrl,
+                    onCardClick = {
+                        Log.d("top_movies", "Top Movies selected: ${movies[index].name}")
                     }
                 )
             }
